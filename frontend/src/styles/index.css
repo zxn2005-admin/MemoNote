@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;
+}
+
+body {
+  background-color: #f5f7fa;
+}
+
+.el-menu {
+  border-right: none !important;
+}
+
+.el-aside {
+  transition: width 0.3s;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.memo-card {
+  transition: all 0.3s ease;
+}
+
+.memo-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.priority-high {
+  border-left: 4px solid #f56c6c;
+}
+
+.priority-medium {
+  border-left: 4px solid #e6a23c;
+}
+
+.priority-low {
+  border-left: 4px solid #67c23a;
+}
+
+@media (max-width: 768px) {
+  .el-aside {
+    position: fixed;
+    z-index: 1000;
+    height: 100vh;
+  }
+}
