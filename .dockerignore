@@ -1,0 +1,20 @@
+# 前端忽略文件
+frontend/node_modules
+frontend/dist
+frontend/.git
+frontend/.vscode
+frontend/.idea
+
+# 后端忽略文件
+backend/target
+backend/.git
+backend/.idea
+backend/*.iml
+
+# 其他
+.git
+.idea
+*.md
+.dockerignore
+Dockerfile
+docker-compose.yml

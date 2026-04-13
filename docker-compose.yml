@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "80:80"      # 前端访问端口
+      - "8080:8080"  # 后端API端口（可选，直接访问后端用）
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/memonote?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=123456
+    depends_on:
+      - mysql
+    networks:
+      - memonote-network
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=memonote
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - memonote-network
+
+volumes:
+  mysql-data:
+
+networks:
+  memonote-network:
+    driver: bridge
